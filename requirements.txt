@@ -3,3 +3,4 @@ Flask-SocketIO
 yt-dlp
 eventlet
 gevent
+gunicorn
