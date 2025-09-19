@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced SoundCloud Downloader</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --warning-color: #f59e0b;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --border-color: #334155;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .main-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        .nav-pills .nav-link {
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-pills .nav-link.active {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .form-control, .form-select {
+            border-radius: 12px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+            padding: 12px 16px;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .btn {
+            border-radius: 12px;
+            font-weight: 600;
+            padding: 12px 24px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-success {
+            background: linear-gradient(45deg, var(--success-color), #059669);
+            border: none;
+        }
+
+        .btn-danger {
+            background: linear-gradient(45deg, var(--danger-color), #dc2626);
+            border: none;
+        }
+
+        .card {
+            border-radius: 16px;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress {
+            height: 12px;
+            border-radius: 10px;
+            background: #e2e8f0;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, var(--success-color), #06d6a0);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .alert {
+            border-radius: 12px;
+            border: none;
+        }
+
+        .log-container {
+            background: #1e293b;
+            color: #e2e8f0;
+            border-radius: 12px;
+            font-family: 'JetBrains Mono', 'Consolas', monospace;
+            font-size: 13px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 16px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .status-ready {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-downloading {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .status-complete {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-error {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .floating-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .floating-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.6);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Dark theme support */
+        @media (prefers-color-scheme: dark) {
+            .main-container {
+                background: rgba(30, 41, 59, 0.95);
+                color: #e2e8f0;
+            }
+            
+            .card {
+                background: rgba(51, 65, 85, 0.8);
+                color: #e2e8f0;
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .main-container {
+                margin: 10px;
+                border-radius: 16px;
+            }
+            
+            .btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            
+            .feature-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid py-4">
+        <div class="main-container">
+            <!-- Header -->
+            <div class="p-4 border-bottom">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h1 class="h3 mb-0 d-flex align-items-center">
+                            <i class="fas fa-music me-3 text-primary"></i>
+                            Enhanced SoundCloud Downloader
+                        </h1>
+                        <p class="text-muted mb-0">Descarga audio de alta calidad con metadatos y carátulas</p>
+                    </div>
+                    <div class="col-auto">
+                        <span id="status-badge" class="status-badge status-ready">
+                            <i class="fas fa-circle"></i>
+                            Listo
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="p-4">
+                <ul class="nav nav-pills mb-4" id="main-tabs" role="tablist">
+                    <li class="nav-item">
+                        <button class="nav-link active" id="download-tab" data-bs-toggle="pill" data-bs-target="#download-pane" type="button">
+                            <i class="fas fa-download me-2"></i>Descarga
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" id="settings-tab" data-bs-toggle="pill" data-bs-target="#settings-pane" type="button">
+                            <i class="fas fa-cog me-2"></i>Configuración
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" id="history-tab" data-bs-toggle="pill" data-bs-target="#history-pane" type="button">
+                            <i class="fas fa-history me-2"></i>Historial
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" id="info-tab" data-bs-toggle="pill" data-bs-target="#info-pane" type="button">
+                            <i class="fas fa-info-circle me-2"></i>Acerca de
+                        </button>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content" id="main-tab-content">
+                    
+                    <!-- Download Tab -->
+                    <div class="tab-pane fade show active" id="download-pane">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <h5 class="card-title d-flex align-items-center">
+                                            <i class="fas fa-link me-2"></i>URL de SoundCloud
+                                        </h5>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" id="url-input" placeholder="https://soundcloud.com/..." aria-label="URL">
+                                            <button class="btn btn-primary" type="button" id="download-btn">
+                                                <i class="fas fa-download me-2"></i>Descargar
+                                            </button>
+                                        </div>
+                                        <div class="form-check form-switch mb-3">
+                                            <input class="form-check-input" type="checkbox" id="auto-download" checked>
+                                            <label class="form-check-label" for="auto-download">Descargar automáticamente después de obtener información</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <h5 class="card-title d-flex align-items-center">
+                                            <i class="fas fa-info-circle me-2"></i>Información del Track
+                                        </h5>
+                                        <div id="track-info" class="d-none">
+                                            <div class="row">
+                                                <div class="col-md-4 mb-3">
+                                                    <img id="track-thumbnail" src="" class="img-fluid rounded" alt="Track thumbnail">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <h4 id="track-title"></h4>
+                                                    <p id="track-artist" class="text-muted"></p>
+                                                    <p id="track-duration"></p>
+                                                    <a id="track-url" href="#" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                        <i class="fas fa-external-link-alt me-1"></i>Abrir en SoundCloud
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="no-track-info" class="text-center py-4">
+                                            <i class="fas fa-music fa-3x mb-3 text-muted"></i>
+                                            <p class="text-muted">Ingresa una URL de SoundCloud para ver la información del track</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <h5 class="card-title d-flex align-items-center">
+                                            <i class="fas fa-tasks me-2"></i>Progreso de Descarga
+                                        </h5>
+                                        <div id="download-progress" class="d-none">
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <span id="progress-status">Preparando...</span>
+                                                <span id="progress-percentage">0%</span>
+                                            </div>
+                                            <div class="progress mb-3">
+                                                <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            <div class="row text-center">
+                                                <div class="col-4">
+                                                    <small class="text-muted">Velocidad</small>
+                                                    <p id="download-speed" class="mb-0">0 KB/s</p>
+                                                </div>
+                                                <div class="col-4">
+                                                    <small class="text-muted">Tiempo restante</small>
+                                                    <p id="time-remaining" class="mb-0">--:--</p>
+                                                </div>
+                                                <div class="col-4">
+                                                    <small class="text-muted">Tamaño</small>
+                                                    <p id="file-size" class="mb-0">0 MB</p>
+                                                </div>
+                                            </div>
+                                            <button id="cancel-download" class="btn btn-danger btn-sm mt-3 w-100">
+                                                <i class="fas fa-times-circle me-1"></i>Cancelar Descarga
+                                            </button>
+                                        </div>
+                                        <div id="no-download" class="text-center py-4">
+                                            <i class="fas fa-cloud-download-alt fa-3x mb-3 text-muted"></i>
+                                            <p class="text-muted">No hay descargas activas</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title d-flex align-items-center">
+                                            <i class="fas fa-terminal me-2"></i>Registro de Actividad
+                                        </h5>
+                                        <div class="log-container p-3">
+                                            <div id="activity-log">
+                                                <div class="log-entry text-success">Sistema iniciado. Listo para descargar.</div>
+                                            </div>
+                                        </div>
+                                        <button id="clear-log" class="btn btn-sm btn-outline-secondary mt-3">
+                                            <i class="fas fa-trash me-1"></i>Limpiar registro
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Settings Tab -->
+                    <div class="tab-pane fade" id="settings-pane">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <h5 class="card-title mb-4">Configuración de Descarga</h5>
+                                        
+                                        <div class="mb-3">
+                                            <label for="format-select" class="form-label">Formato de Audio</label>
+                                            <select class="form-select" id="format-select">
+                                                <option value="mp3">MP3</option>
+                                                <option value="m4a">M4A</option>
+                                                <option value="flac">FLAC</option>
+                                                <option value="wav">WAV</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="bitrate-select" class="form-label">Calidad (Bitrate)</label>
+                                            <select class="form-select" id="bitrate-select">
+                                                <option value="320">320 kbps (Máxima)</option>
+                                                <option value="256">256 kbps</option>
+                                                <option value="192" selected>192 kbps</option>
+                                                <option value="128">128 kbps</option>
+                                                <option value="96">96 kbps (Mínima)</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="filename-template" class="form-label">Plantilla de Nombre de Archivo</label>
+                                            <input type="text" class="form-control" id="filename-template" value="%(artist)s - %(title)s.%(ext)s">
+                                            <div class="form-text">Variables disponibles: %(artist)s, %(title)s, %(ext)s, %(uploader)s</div>
+                                        </div>
+                                        
+                                        <div class="form-check form-switch mb-3">
+                                            <input class="form-check-input" type="checkbox" id="create-folders" checked>
+                                            <label class="form-check-label" for="create-folders">Crear carpetas por artista</label>
+                                        </div>
+                                        
+                                        <div class="form-check form-switch mb-3">
+                                            <input class="form-check-input" type="checkbox" id="skip-existing" checked>
+                                            <label class="form-check-label" for="skip-existing">Saltar archivos existentes</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <h5 class="card-title mb-4">Configuración de Metadatos</h5>
+                                        
+                                        <div class="form-check form-switch mb-3">
+                                            <input class="form-check-input" type="checkbox" id="embed-metadata" checked>
+                                            <label class="form-check-label" for="embed-metadata">Incrustar metadatos</label>
+                                        </div>
+                                        
+                                        <div class="form-check form-switch mb-3">
+                                            <input class="form-check-input" type="checkbox" id="embed-thumbnail" checked>
+                                            <label class="form-check-label" for="embed-thumbnail">Incrustar carátula</label>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="cover-format" class="form-label">Formato de Carátula</label>
+                                            <select class="form-select" id="cover-format">
+                                                <option value="jpg">JPG</option>
+                                                <option value="png">PNG</option>
+                                                <option value="webp">WebP</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="cover-size" class="form-label">Tamaño de Carátula</label>
+                                            <select class="form-select" id="cover-size">
+                                                <option value="original">Original</option>
+                                                <option value="500">500x500</option>
+                                                <option value="800">800x800</option>
+                                                <option value="1200">1200x1200</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-grid gap-2">
+                                    <button id="save-settings" class="btn btn-primary">
+                                        <i class="fas fa-save me-2"></i>Guardar Configuración
+                                    </button>
+                                    <button id="reset-settings" class="btn btn-outline-secondary">
+                                        <i class="fas fa-undo me-2"></i>Restablecer Valores Predeterminados
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- History Tab -->
+                    <div class="tab-pane fade" id="history-pane">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title d-flex align-items-center justify-content-between">
+                                    <span><i class="fas fa-history me-2"></i>Historial de Descargas</span>
+                                    <button id="clear-history" class="btn btn-sm btn-outline-danger">
+                                        <i class="fas fa-trash me-1"></i>Limpiar Historial
+                                    </button>
+                                </h5>
+                                
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Fecha</th>
+                                                <th>Título</th>
+                                                <th>Artista</th>
+                                                <th>Formato</th>
+                                                <th>Estado</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="history-table">
+                                            <tr>
+                                                <td colspan="6" class="text-center py-4 text-muted">
+                                                    <i class="fas fa-inbox fa-2x mb-2"></i>
+                                                    <p>No hay descargas en el historial</p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Info Tab -->
+                    <div class="tab-pane fade" id="info-pane">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <h3 class="card-title">SoundCloud Downloader</h3>
+                                        <p class="lead">Una aplicación web para descargar audio de SoundCloud y otras plataformas.</p>
+                                        
+                                        <h5 class="mt-4">Características</h5>
+                                        <ul>
+                                            <li>Descarga de audio en múltiples formatos (MP3, M4A, FLAC, WAV)</li>
+                                            <li>Varias calidades de audio (desde 96 kbps hasta 320 kbps)</li>
+                                            <li>Metadatos incrustados (título, artista, álbum, etc.)</li>
+                                            <li>Carátulas incrustadas en el archivo de audio</li>
+                                            <li>Interfaz web moderna y responsive</li>
+                                            <li>Descargas en segundo plano con progreso en tiempo real</li>
+                                            <li>Historial de descargas</li>
+                                        </ul>
+                                        
+                                        <h5 class="mt-4">Cómo usar</h5>
+                                        <ol>
+                                            <li>Ve a SoundCloud y copia la URL del track que quieres descargar</li>
+                                            <li>Pega la URL en el campo correspondiente en la pestaña "Descarga"</li>
+                                            <li>Haz clic en "Descargar" o espera a que se obtenga la información automáticamente</li>
+                                            <li>Espera a que la descarga se complete</li>
+                                            <li>Encuentra tu archivo en la carpeta de descargas</li>
+                                        </ol>
+                                        
+                                        <div class="alert alert-warning mt-4">
+                                            <i class="fas fa-exclamation-triangle me-2"></i>
+                                            <strong>Aviso legal:</strong> Esta herramienta es solo para uso personal. 
+                                            Asegúrate de tener los derechos necesarios para descargar y usar el contenido. 
+                                            Respeta los derechos de autor y las políticas de las plataformas.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-4">
+                                <div class="card mb-4">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">Versión</h5>
+                                        <div class="display-4 text-primary mb-2">1.0.0</div>
+                                        <p class="text-muted">SoundCloud Downloader</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Tecnologías</h5>
+                                        <div class="d-flex flex-wrap gap-2">
+                                            <span class="badge bg-primary">Flask</span>
+                                            <span class="badge bg-primary">Python</span>
+                                            <span class="badge bg-success">yt-dlp</span>
+                                            <span class="badge bg-info">Bootstrap</span>
+                                            <span class="badge bg-info">Socket.IO</span>
+                                            <span class="badge bg-warning">JavaScript</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Enlaces</h5>
+                                        <div class="d-grid gap-2">
+                                            <a href="#" class="btn btn-outline-primary">
+                                                <i class="fab fa-github me-2"></i>GitHub
+                                            </a>
+                                            <a href="#" class="btn btn-outline-info">
+                                                <i class="fas fa-book me-2"></i>Documentación
+                                            </a>
+                                            <a href="#" class="btn btn-outline-danger">
+                                                <i class="fas fa-bug me-2"></i>Reportar un problema
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Socket.IO -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
+    
+    <script>
+        // Configuración inicial
+        const socket = io();
+        let currentDownloadId = null;
+        let currentRoomId = null;
+        let appConfig = {};
+        
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cargar configuración
+            loadConfig();
+            
+            // Configurar event listeners
+            setupEventListeners();
+            
+            // Conectar con el servidor via Socket.IO
+            setupSocketIO();
+        });
+        
+        // Cargar configuración desde el servidor
+        function loadConfig() {
+            fetch('/api/config')
+                .then(response => response.json())
+                .then(config => {
+                    appConfig = config;
+                    applyConfigToUI();
+                })
+                .catch(error => {
+                    console.error('Error loading config:', error);
+                    addLog('Error al cargar la configuración', 'error');
+                });
+        }
+        
+        // Aplicar configuración a la UI
+        function applyConfigToUI() {
+            // Formato de audio
+            document.getElementById('format-select').value = appConfig.format || 'mp3';
+            
+            // Bitrate
+            document.getElementById('bitrate-select').value = appConfig.bitrate || '192';
+            
+            // Plantilla de nombre de archivo
+            document.getElementById('filename-template').value = appConfig.template || '%(artist)s - %(title)s.%(ext)s';
+            
+            // Crear carpetas por artista
+            document.getElementById('create-folders').checked = appConfig.create_artist_folders || false;
+            
+            // Saltar archivos existentes
+            document.getElementById('skip-existing').checked = appConfig.skip_existing !== false;
+            
+            // Incrustar metadatos
+            document.getElementById('embed-metadata').checked = appConfig.add_metadata !== false;
+            
+            // Incrustar carátula
+            document.getElementById('embed-thumbnail').checked = appConfig.embed_thumbnail !== false;
+            
+            // Formato de carátula
+            if (appConfig.cover_format) {
+                document.getElementById('cover-format').value = appConfig.cover_format;
+            }
+            
+            // Tamaño de carátula
+            if (appConfig.cover_size) {
+                document.getElementById('cover-size').value = appConfig.cover_size;
+            }
+        }
+        
+        // Configurar event listeners
+        function setupEventListeners() {
+            // Botón de descarga
+            document.getElementById('download-btn').addEventListener('click', startDownload);
+            
+            // Cancelar descarga
+            document.getElementById('cancel-download').addEventListener('click', cancelDownload);
+            
+            // Guardar configuración
+            document.getElementById('save-settings').addEventListener('click', saveConfig);
+            
+            // Restablecer configuración
+            document.getElementById('reset-settings').addEventListener('click', resetConfig);
+            
+            // Limpiar registro
+            document.getElementById('clear-log').addEventListener('click', clearLog);
+            
+            // Limpiar historial
+            document.getElementById('clear-history').addEventListener('click', clearHistory);
+            
+            // Input URL - enter key
+            document.getElementById('url-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    startDownload();
+                }
+            });
+        }
+        
+        // Configurar Socket.IO
+        function setupSocketIO() {
+            socket.on('connect', function() {
+                addLog('Conectado al servidor', 'success');
+                updateStatus('ready', 'Conectado');
+            });
+            
+            socket.on('disconnect', function() {
+                addLog('Desconectado del servidor', 'warning');
+                updateStatus('error', 'Desconectado');
+            });
+            
+            socket.on('download_progress', function(data) {
+                handleDownloadProgress(data);
+            });
+            
+            // Unirse a la sala cuando se recibe el room_id
+            socket.on('connected', function(data) {
+                currentRoomId = data.room_id;
+                socket.emit('join_room', { room_id: currentRoomId });
+            });
+        }
+        
+        // Iniciar descarga
+        function startDownload() {
+            const url = document.getElementById('url-input').value.trim();
+            
+            if (!url) {
+                addLog('Por favor, ingresa una URL válida', 'error');
+                showAlert('Por favor, ingresa una URL válida', 'warning');
+                return;
+            }
+            
+            addLog(`Iniciando descarga para: ${url}`, 'info');
+            updateStatus('downloading', 'Iniciando descarga...');
+            
+            // Recopilar configuración actual
+            const config = {
+                format: document.getElementById('format-select').value,
+                bitrate: document.getElementById('bitrate-select').value,
+                template: document.getElementById('filename-template').value,
+                create_artist_folders: document.getElementById('create-folders').checked,
+                skip_existing: document.getElementById('skip-existing').checked,
+                add_metadata: document.getElementById('embed-metadata').checked,
+                embed_thumbnail: document.getElementById('embed-thumbnail').checked,
+                cover_format: document.getElementById('cover-format').value,
+                cover_size: document.getElementById('cover-size').value
+            };
+            
+            // Enviar solicitud al servidor
+            fetch('/api/download/start', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    url: url,
+                    config: config
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    currentDownloadId = data.download_id;
+                    addLog(`Descarga iniciada (ID: ${data.download_id})`, 'success');
+                    
+                    // Mostrar panel de progreso
+                    document.getElementById('download-progress').classList.remove('d-none');
+                    document.getElementById('no-download').classList.add('d-none');
+                } else {
+                    addLog(`Error: ${data.message}`, 'error');
+                    updateStatus('error', 'Error al iniciar descarga');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                addLog('Error de conexión con el servidor', 'error');
+                updateStatus('error', 'Error de conexión');
+            });
+        }
+        
+        // Cancelar descarga
+        function cancelDownload() {
+            if (!currentDownloadId) {
+                addLog('No hay descarga activa para cancelar', 'warning');
+                return;
+            }
+            
+            addLog('Cancelando descarga...', 'warning');
+            
+            fetch(`/api/download/cancel/${currentDownloadId}`, {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    addLog('Descarga cancelada', 'info');
+                    updateStatus('ready', 'Descarga cancelada');
+                    
+                    // Ocultar panel de progreso
+                    document.getElementById('download-progress').classList.add('d-none');
+                    document.getElementById('no-download').classList.remove('d-none');
+                    
+                    currentDownloadId = null;
+                } else {
+                    addLog(`Error al cancelar: ${data.message}`, 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                addLog('Error al cancelar la descarga', 'error');
+            });
+        }
+        
+        // Manejar progreso de descarga
+        function handleDownloadProgress(data) {
+            if (data.download_id !== currentDownloadId) return;
+            
+            switch (data.type) {
+                case 'status':
+                    addLog(data.data, 'info');
+                    document.getElementById('progress-status').textContent = data.data;
+                    break;
+                    
+                case 'info':
+                    displayTrackInfo(data.data);
+                    break;
+                    
+                case 'progress':
+                    updateProgressBar(data.data);
+                    break;
+                    
+                case 'complete':
+                    // data.data puede ser string o { message, download_url }
+                    if (typeof data.data === 'string') {
+                        addLog(data.data, 'success');
+                        updateStatus('complete', 'Descarga completada');
+                        document.getElementById('progress-status').textContent = data.data;
+                        document.getElementById('progress-bar').style.width = '100%';
+                        document.getElementById('progress-percentage').textContent = '100%';
+                    } else if (data.data && typeof data.data === 'object') {
+                        const message = data.data.message || 'Descarga completada';
+                        addLog(message, 'success');
+                        updateStatus('complete', 'Descarga completada');
+                        document.getElementById('progress-status').textContent = message;
+                        document.getElementById('progress-bar').style.width = '100%';
+                        document.getElementById('progress-percentage').textContent = '100%';
+
+                        if (data.data.download_url) {
+                            // Intentar descarga automática (puede ser bloqueada por el navegador)
+                            try {
+                                const a = document.createElement('a');
+                                a.href = data.data.download_url;
+                                a.target = '_blank';
+                                a.rel = 'noopener';
+                                // Append so click works in Firefox
+                                document.body.appendChild(a);
+                                a.click();
+                                a.remove();
+                            } catch (e) {
+                                console.warn('No se pudo abrir el enlace automáticamente', e);
+                            }
+
+                            // Mostrar botón visible para descargar si el navegador bloqueó la apertura
+                            addDownloadToHistory({
+                                date: new Date().toLocaleString(),
+                                title: document.getElementById('track-title').textContent || 'Archivo',
+                                artist: document.getElementById('track-artist').textContent || '',
+                                format: document.getElementById('format-select').value || '',
+                                status: 'Completado',
+                                url: data.data.download_url
+                            });
+                        }
+                    }
+
+                    // Ocultar panel de progreso después de un tiempo
+                    setTimeout(() => {
+                        document.getElementById('download-progress').classList.add('d-none');
+                        document.getElementById('no-download').classList.remove('d-none');
+                    }, 5000);
+                    
+                    currentDownloadId = null;
+                    break;
+                    
+                case 'error':
+                    addLog(data.data, 'error');
+                    updateStatus('error', 'Error en descarga');
+                    document.getElementById('progress-status').textContent = data.data;
+                    
+                    // Ocultar panel de progreso después de un tiempo
+                    setTimeout(() => {
+                        document.getElementById('download-progress').classList.add('d-none');
+                        document.getElementById('no-download').classList.remove('d-none');
+                    }, 5000);
+                    
+                    currentDownloadId = null;
+                    break;
+                    
+                case 'canceled':
+                    addLog(data.data, 'warning');
+                    updateStatus('ready', 'Descarga cancelada');
+                    
+                    // Ocultar panel de progreso
+                    document.getElementById('download-progress').classList.add('d-none');
+                    document.getElementById('no-download').classList.remove('d-none');
+                    
+                    currentDownloadId = null;
+                    break;
+            }
+        }
+        
+        // Mostrar información del track
+        function displayTrackInfo(info) {
+            document.getElementById('track-info').classList.remove('d-none');
+            document.getElementById('no-track-info').classList.add('d-none');
+            
+            document.getElementById('track-title').textContent = info.title;
+            document.getElementById('track-artist').textContent = info.artist;
+            
+            // Formatear duración
+            if (info.duration) {
+                const minutes = Math.floor(info.duration / 60);
+                const seconds = info.duration % 60;
+                document.getElementById('track-duration').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            }
+            
+            // Imagen de portada
+            if (info.thumbnail) {
+                document.getElementById('track-thumbnail').src = info.thumbnail;
+            }
+            
+            // Enlace a SoundCloud
+            document.getElementById('track-url').href = info.webpage_url;
+            
+            addLog(`Información obtenida: ${info.title} - ${info.artist}`, 'success');
+        }
+        
+        // Actualizar barra de progreso
+        function updateProgressBar(progress) {
+            const percent = progress.percent || 0;
+            const downloaded = formatBytes(progress.downloaded || 0);
+            const total = formatBytes(progress.total || 0);
+            const speed = formatBytes(progress.speed || 0) + '/s';
+            
+            // Calcular tiempo restante
+            let eta = '--:--';
+            if (progress.eta && progress.eta > 0) {
+                const minutes = Math.floor(progress.eta / 60);
+                const seconds = progress.eta % 60;
+                eta = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            }
+            
+            // Actualizar UI
+            document.getElementById('progress-bar').style.width = `${percent}%`;
+            document.getElementById('progress-percentage').textContent = `${percent.toFixed(1)}%`;
+            document.getElementById('download-speed').textContent = speed;
+            document.getElementById('time-remaining').textContent = eta;
+            document.getElementById('file-size').textContent = `${downloaded} / ${total}`;
+            
+            // Actualizar estado
+            if (percent > 0) {
+                updateStatus('downloading', `Descargando: ${percent.toFixed(1)}%`);
+            }
+        }
+        
+        // Guardar configuración
+        function saveConfig() {
+            const config = {
+                format: document.getElementById('format-select').value,
+                bitrate: document.getElementById('bitrate-select').value,
+                template: document.getElementById('filename-template').value,
+                create_artist_folders: document.getElementById('create-folders').checked,
+                skip_existing: document.getElementById('skip-existing').checked,
+                add_metadata: document.getElementById('embed-metadata').checked,
+                embed_thumbnail: document.getElementById('embed-thumbnail').checked,
+                cover_format: document.getElementById('cover-format').value,
+                cover_size: document.getElementById('cover-size').value
+            };
+            
+            fetch('/api/config', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(config)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    addLog('Configuración guardada correctamente', 'success');
+                    showAlert('Configuración guardada correctamente', 'success');
+                    appConfig = config;
+                } else {
+                    addLog(`Error al guardar configuración: ${data.message}`, 'error');
+                    showAlert('Error al guardar la configuración', 'danger');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                addLog('Error de conexión al guardar configuración', 'error');
+                showAlert('Error de conexión', 'danger');
+            });
+        }
+        
+        // Restablecer configuración
+        function resetConfig() {
+            if (confirm('¿Estás seguro de que quieres restablecer la configuración a los valores predeterminados?')) {
+                appConfig = {};
+                applyConfigToUI();
+                addLog('Configuración restablecida a valores predeterminados', 'info');
+            }
+        }
+        
+        // Limpiar registro
+        function clearLog() {
+            document.getElementById('activity-log').innerHTML = '';
+            addLog('Registro limpiado', 'info');
+        }
+        
+        // Limpiar historial
+        function clearHistory() {
+            if (confirm('¿Estás seguro de que quieres limpiar el historial de descargas? Esta acción no se puede deshacer.')) {
+                document.getElementById('history-table').innerHTML = `
+                    <tr>
+                        <td colspan="6" class="text-center py-4 text-muted">
+                            <i class="fas fa-inbox fa-2x mb-2"></i>
+                            <p>No hay descargas en el historial</p>
+                        </td>
+                    </tr>
+                `;
+                addLog('Historial limpiado', 'info');
+            }
+        }
+
+        // Añadir entrada al historial y crear botón de descarga si hay URL
+        function addDownloadToHistory(entry) {
+            const tbody = document.getElementById('history-table');
+            // quitar placeholder si existe
+            if (tbody.querySelector('td[colspan]')) tbody.innerHTML = '';
+            const tr = document.createElement('tr');
+
+            const tdDate = document.createElement('td'); tdDate.textContent = entry.date;
+            const tdTitle = document.createElement('td'); tdTitle.textContent = entry.title;
+            const tdArtist = document.createElement('td'); tdArtist.textContent = entry.artist;
+            const tdFormat = document.createElement('td'); tdFormat.textContent = entry.format;
+            const tdStatus = document.createElement('td'); tdStatus.textContent = entry.status;
+
+            const tdActions = document.createElement('td');
+            if (entry.url) {
+                const btn = document.createElement('a');
+                btn.className = 'btn btn-sm btn-outline-primary';
+                btn.href = entry.url;
+                btn.target = '_blank';
+                btn.textContent = 'Descargar';
+                tdActions.appendChild(btn);
+            } else {
+                tdActions.textContent = '-';
+            }
+
+            tr.appendChild(tdDate);
+            tr.appendChild(tdTitle);
+            tr.appendChild(tdArtist);
+            tr.appendChild(tdFormat);
+            tr.appendChild(tdStatus);
+            tr.appendChild(tdActions);
+
+            tbody.prepend(tr);
+        }
+        
+        // Utilidad: Formatear bytes a formato legible
+        function formatBytes(bytes, decimals = 2) {
+            if (bytes === 0) return '0 Bytes';
+            
+            const k = 1024;
+            const dm = decimals < 0 ? 0 : decimals;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+            
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+        }
+        
+        // Utilidad: Añadir entrada al registro
+        function addLog(message, type = 'info') {
+            const logContainer = document.getElementById('activity-log');
+            const timestamp = new Date().toLocaleTimeString();
+            const colorClass = type === 'error' ? 'text-danger' : 
+                              type === 'success' ? 'text-success' : 
+                              type === 'warning' ? 'text-warning' : 'text-info';
+            
+            const logEntry = document.createElement('div');
+            logEntry.className = `log-entry ${colorClass}`;
+            logEntry.innerHTML = `<span class="text-muted">[${timestamp}]</span> ${message}`;
+            
+            logContainer.appendChild(logEntry);
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+        
+        // Utilidad: Actualizar estado
+        function updateStatus(status, message) {
+            const statusBadge = document.getElementById('status-badge');
+            statusBadge.className = 'status-badge ';
+            
+            switch (status) {
+                case 'ready':
+                    statusBadge.className += 'status-ready';
+                    statusBadge.innerHTML = '<i class="fas fa-circle"></i> ' + message;
+                    break;
+                case 'downloading':
+                    statusBadge.className += 'status-downloading';
+                    statusBadge.innerHTML = '<i class="fas fa-sync fa-spin"></i> ' + message;
+                    break;
+                case 'complete':
+                    statusBadge.className += 'status-complete';
+                    statusBadge.innerHTML = '<i class="fas fa-check-circle"></i> ' + message;
+                    break;
+                case 'error':
+                    statusBadge.className += 'status-error';
+                    statusBadge.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + message;
+                    break;
+            }
+        }
+        
+        // Utilidad: Mostrar alerta temporal
+        function showAlert(message, type) {
+            // Crear elemento de alerta
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type} alert-dismissible fade show`;
+            alert.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Añadir al documento
+            document.querySelector('.main-container').prepend(alert);
+            
+            // Eliminar después de 5 segundos
+            setTimeout(() => {
+                if (alert.parentNode) {
+                    alert.remove();
+                }
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

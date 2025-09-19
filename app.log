@@ -1,0 +1,482 @@
+2025-09-18 19:35:49,119 [INFO] Iniciando servidor (config: {"format": "mp3", "bitrate": "192", "template": "%(artist)s - %(title)s.%(ext)s", "create_artist_folders": true, "skip_existing": true, "add_metadata": true, "embed_thumbnail": true, "cover_format": "jpg", "cover_size": "original"}) - async_mode=eventlet
+2025-09-18 19:35:49,140 [INFO]  * Restarting with watchdog (fsevents)
+2025-09-18 19:35:49,635 [INFO] Iniciando servidor (config: {"format": "mp3", "bitrate": "192", "template": "%(artist)s - %(title)s.%(ext)s", "create_artist_folders": true, "skip_existing": true, "add_metadata": true, "embed_thumbnail": true, "cover_format": "jpg", "cover_size": "original"}) - async_mode=eventlet
+2025-09-18 19:35:49,654 [WARNING]  * Debugger is active!
+2025-09-18 19:35:49,663 [INFO]  * Debugger PIN: 388-118-638
+2025-09-18 19:36:41,430 [INFO] Iniciando servidor (config: {"format": "mp3", "bitrate": "192", "template": "%(artist)s - %(title)s.%(ext)s", "create_artist_folders": true, "skip_existing": true, "add_metadata": true, "embed_thumbnail": true, "cover_format": "jpg", "cover_size": "original"}) - async_mode=eventlet
+2025-09-18 19:36:41,451 [INFO]  * Restarting with watchdog (fsevents)
+2025-09-18 19:36:41,919 [INFO] Iniciando servidor (config: {"format": "mp3", "bitrate": "192", "template": "%(artist)s - %(title)s.%(ext)s", "create_artist_folders": true, "skip_existing": true, "add_metadata": true, "embed_thumbnail": true, "cover_format": "jpg", "cover_size": "original"}) - async_mode=eventlet
+2025-09-18 19:36:41,933 [WARNING]  * Debugger is active!
+2025-09-18 19:36:41,942 [INFO]  * Debugger PIN: 388-118-638
+2025-09-18 19:37:22,643 [INFO] Iniciando servidor (config: {"format": "mp3", "bitrate": "192", "template": "%(artist)s - %(title)s.%(ext)s", "create_artist_folders": true, "skip_existing": true, "add_metadata": true, "embed_thumbnail": true, "cover_format": "jpg", "cover_size": "original"}) - async_mode=eventlet
+2025-09-18 19:37:22,643 [INFO] Ejecutando sin reloader/debug para compatibilidad con eventlet/gevent.
+2025-09-18 19:37:32,602 [INFO] Socket conectado: sid=1izxBJDhjQATeenbAAAB, ip=127.0.0.1, room=0a3a45af-af10-415d-b1db-f7f14381f608
+2025-09-18 19:37:32,728 [INFO] Sid 1izxBJDhjQATeenbAAAB se unió a la sala 0a3a45af-af10-415d-b1db-f7f14381f608
+2025-09-18 19:37:37,010 [INFO] Iniciada descarga 9d0527b8-b4d3-4e75-9d24-d56f7fe5d5e7 para URL: https://soundcloud.com/dontoliver/don-toliver-no-pole?si=520f26d4671343488dd0951bd348e313&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing (room=0a3a45af-af10-415d-b1db-f7f14381f608)
+2025-09-18 19:37:53,641 [ERROR] Error durante la descarga
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3465, in process_info
+    replace_info_dict(self.post_process(dl_filename, info_dict, files_to_move))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3645, in post_process
+    info = self.run_all_pps('post_process', info, additional_pps=info.get('__postprocessors'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3627, in run_all_pps
+    info = self.run_pp(pp, info)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3605, in run_pp
+    files_to_delete, infodict = pp.run(infodict)
+                                ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/postprocessor/common.py", line 23, in run
+    ret = func(self, info, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/postprocessor/common.py", line 128, in wrapper
+    return func(self, info)
+           ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 495, in run
+    raise PostProcessingError('WARNING: unable to obtain file audio codec with ffprobe')
+yt_dlp.utils.PostProcessingError: WARNING: unable to obtain file audio codec with ffprobe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/alonsomota/Documents/proyectos_programacion/aquiWebDOWNLOADER ya jala pero raro/app.py", line 363, in _download_worker
+    ydl.download([url])
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3511, in download
+    self.__download_wrapper(self.extract_info)(
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3486, in wrapper
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1556, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1567, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1723, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1782, in process_ie_result
+    ie_result = self.process_video_result(ie_result, download=download)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 2922, in process_video_result
+    self.process_info(new_info)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3467, in process_info
+    self.report_error('Postprocessing: %s' % str(err))
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1045, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 984, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m Postprocessing: WARNING: unable to obtain file audio codec with ffprobe
+2025-09-18 19:39:11,598 [INFO] Socket desconectado: sid=1izxBJDhjQATeenbAAAB, room=0a3a45af-af10-415d-b1db-f7f14381f608
+2025-09-18 19:39:26,924 [INFO] Iniciando servidor (config: {"format": "mp3", "bitrate": "192", "template": "%(artist)s - %(title)s.%(ext)s", "create_artist_folders": true, "skip_existing": true, "add_metadata": true, "embed_thumbnail": true, "cover_format": "jpg", "cover_size": "original"}) - async_mode=eventlet
+2025-09-18 19:39:31,529 [INFO] Socket conectado: sid=LQ7KonGcIcLQvbxeAAAB, ip=127.0.0.1, room=bd1d996a-4bf2-444b-809d-da2312766c51
+2025-09-18 19:39:31,610 [INFO] Sid LQ7KonGcIcLQvbxeAAAB se unió a la sala bd1d996a-4bf2-444b-809d-da2312766c51
+2025-09-18 19:39:34,918 [INFO] Iniciada descarga 0c1306c1-5782-4b04-b1e7-6a8df5fcb98e para URL: https://soundcloud.com/dontoliver/don-toliver-no-pole?si=520f26d4671343488dd0951bd348e313&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing (room=bd1d996a-4bf2-444b-809d-da2312766c51)
+2025-09-18 19:39:41,005 [ERROR] Error durante la descarga/postprocesamiento
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3465, in process_info
+    replace_info_dict(self.post_process(dl_filename, info_dict, files_to_move))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3645, in post_process
+    info = self.run_all_pps('post_process', info, additional_pps=info.get('__postprocessors'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3627, in run_all_pps
+    info = self.run_pp(pp, info)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3605, in run_pp
+    files_to_delete, infodict = pp.run(infodict)
+                                ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/postprocessor/common.py", line 23, in run
+    ret = func(self, info, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/postprocessor/common.py", line 128, in wrapper
+    return func(self, info)
+           ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 495, in run
+    raise PostProcessingError('WARNING: unable to obtain file audio codec with ffprobe')
+yt_dlp.utils.PostProcessingError: WARNING: unable to obtain file audio codec with ffprobe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/alonsomota/Documents/proyectos_programacion/aquiWebDOWNLOADER ya jala pero raro/app.py", line 374, in _download_worker
+    ydl.download([url])
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3511, in download
+    self.__download_wrapper(self.extract_info)(
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3486, in wrapper
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1556, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1567, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1723, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1782, in process_ie_result
+    ie_result = self.process_video_result(ie_result, download=download)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 2922, in process_video_result
+    self.process_info(new_info)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3467, in process_info
+    self.report_error('Postprocessing: %s' % str(err))
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1045, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 984, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m Postprocessing: WARNING: unable to obtain file audio codec with ffprobe
+2025-09-18 19:40:06,614 [INFO] Socket desconectado: sid=LQ7KonGcIcLQvbxeAAAB, room=bd1d996a-4bf2-444b-809d-da2312766c51
+2025-09-18 19:42:36,271 [INFO] Iniciando servidor (config: {"format": "mp3", "bitrate": "192", "template": "%(artist)s - %(title)s.%(ext)s", "create_artist_folders": true, "skip_existing": true, "add_metadata": true, "embed_thumbnail": true, "cover_format": "jpg", "cover_size": "original"}) - async_mode=eventlet
+2025-09-18 19:43:12,536 [INFO] Iniciando servidor (config: {"format": "mp3", "bitrate": "192", "template": "%(artist)s - %(title)s.%(ext)s", "create_artist_folders": true, "skip_existing": true, "add_metadata": true, "embed_thumbnail": true, "cover_format": "jpg", "cover_size": "original"}) - async_mode=eventlet
+2025-09-18 19:43:40,616 [INFO] Iniciando servidor (config: {"format": "mp3", "bitrate": "192", "template": "%(artist)s - %(title)s.%(ext)s", "create_artist_folders": true, "skip_existing": true, "add_metadata": true, "embed_thumbnail": true, "cover_format": "jpg", "cover_size": "original"}) - async_mode=eventlet
+2025-09-18 19:43:41,409 [INFO] Socket conectado: sid=Yl6rEOZwNCXFxqASAAAB, ip=127.0.0.1, room=cb4045af-704d-4a8a-9a47-b1fc210d16be
+2025-09-18 19:43:41,437 [INFO] Sid Yl6rEOZwNCXFxqASAAAB se unió a la sala cb4045af-704d-4a8a-9a47-b1fc210d16be
+2025-09-18 19:43:49,818 [INFO] Socket desconectado: sid=Yl6rEOZwNCXFxqASAAAB, room=cb4045af-704d-4a8a-9a47-b1fc210d16be
+2025-09-18 19:43:50,592 [INFO] Socket conectado: sid=o7etyb0PB4jmjYLjAAAD, ip=127.0.0.1, room=5ee110f8-feec-498a-87d2-34e31254b751
+2025-09-18 19:43:50,673 [INFO] Sid o7etyb0PB4jmjYLjAAAD se unió a la sala 5ee110f8-feec-498a-87d2-34e31254b751
+2025-09-18 19:44:04,783 [INFO] Iniciada descarga bfb5014d-9f9e-4db5-bdeb-8b3a30511105 para URL: https://soundcloud.com/dontoliver/don-toliver-no-pole?si=520f26d4671343488dd0951bd348e313&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing (room=5ee110f8-feec-498a-87d2-34e31254b751)
+2025-09-18 19:44:13,921 [ERROR] Error durante la descarga/postprocesamiento
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3465, in process_info
+    replace_info_dict(self.post_process(dl_filename, info_dict, files_to_move))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3645, in post_process
+    info = self.run_all_pps('post_process', info, additional_pps=info.get('__postprocessors'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3627, in run_all_pps
+    info = self.run_pp(pp, info)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3605, in run_pp
+    files_to_delete, infodict = pp.run(infodict)
+                                ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/postprocessor/common.py", line 23, in run
+    ret = func(self, info, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/postprocessor/common.py", line 128, in wrapper
+    return func(self, info)
+           ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 495, in run
+    raise PostProcessingError('WARNING: unable to obtain file audio codec with ffprobe')
+yt_dlp.utils.PostProcessingError: WARNING: unable to obtain file audio codec with ffprobe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/alonsomota/Documents/proyectos_programacion/aquiWebDOWNLOADER ya jala pero raro/app.py", line 354, in _download_worker
+    ydl.download([url])
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3511, in download
+    self.__download_wrapper(self.extract_info)(
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3486, in wrapper
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1556, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1567, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1723, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1782, in process_ie_result
+    ie_result = self.process_video_result(ie_result, download=download)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 2922, in process_video_result
+    self.process_info(new_info)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3467, in process_info
+    self.report_error('Postprocessing: %s' % str(err))
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1045, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 984, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m Postprocessing: WARNING: unable to obtain file audio codec with ffprobe
+2025-09-18 19:45:16,313 [INFO] Socket desconectado: sid=o7etyb0PB4jmjYLjAAAD, room=5ee110f8-feec-498a-87d2-34e31254b751
+2025-09-18 19:46:55,716 [INFO] Iniciando servidor (config: {"format": "mp3", "bitrate": "192", "template": "%(artist)s - %(title)s.%(ext)s", "create_artist_folders": true, "skip_existing": true, "add_metadata": true, "embed_thumbnail": true, "cover_format": "jpg", "cover_size": "original"}) - async_mode=eventlet
+2025-09-18 19:46:56,233 [INFO] Socket conectado: sid=vkKJsUn44BdB1td8AAAB, ip=127.0.0.1, room=e4bb03f1-e23b-4971-9b4b-1923ff55f720
+2025-09-18 19:46:56,290 [INFO] Sid vkKJsUn44BdB1td8AAAB se unió a la sala e4bb03f1-e23b-4971-9b4b-1923ff55f720
+2025-09-18 19:47:01,367 [INFO] Iniciada descarga 621887c3-4577-409b-a1da-a1834fb38508 para URL: https://soundcloud.com/dontoliver/don-toliver-no-pole?si=520f26d4671343488dd0951bd348e313&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing (room=e4bb03f1-e23b-4971-9b4b-1923ff55f720)
+2025-09-18 19:47:08,253 [ERROR] Error durante la descarga/postprocesamiento
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3465, in process_info
+    replace_info_dict(self.post_process(dl_filename, info_dict, files_to_move))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3645, in post_process
+    info = self.run_all_pps('post_process', info, additional_pps=info.get('__postprocessors'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3627, in run_all_pps
+    info = self.run_pp(pp, info)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3605, in run_pp
+    files_to_delete, infodict = pp.run(infodict)
+                                ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/postprocessor/common.py", line 23, in run
+    ret = func(self, info, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/postprocessor/common.py", line 128, in wrapper
+    return func(self, info)
+           ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 495, in run
+    raise PostProcessingError('WARNING: unable to obtain file audio codec with ffprobe')
+yt_dlp.utils.PostProcessingError: WARNING: unable to obtain file audio codec with ffprobe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/alonsomota/Documents/proyectos_programacion/aquiWebDOWNLOADER ya jala pero raro/app.py", line 372, in _download_worker
+    ydl.download([url])
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3511, in download
+    self.__download_wrapper(self.extract_info)(
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3486, in wrapper
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1556, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1567, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1723, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1782, in process_ie_result
+    ie_result = self.process_video_result(ie_result, download=download)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 2922, in process_video_result
+    self.process_info(new_info)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3467, in process_info
+    self.report_error('Postprocessing: %s' % str(err))
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1045, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 984, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m Postprocessing: WARNING: unable to obtain file audio codec with ffprobe
+2025-09-18 19:47:08,258 [INFO] Fallback: entregando archivo reciente /Users/alonsomota/Documents/proyectos_programacion/aquiWebDOWNLOADER ya jala pero raro/downloads/Don Toliver/NA - No Pole.jpg
+2025-09-18 19:48:08,447 [INFO] Socket desconectado: sid=vkKJsUn44BdB1td8AAAB, room=e4bb03f1-e23b-4971-9b4b-1923ff55f720
+2025-09-18 19:48:52,095 [INFO] Iniciando servidor (config: {"format": "mp3", "bitrate": "192", "template": "%(artist)s - %(title)s.%(ext)s", "create_artist_folders": true, "skip_existing": true, "add_metadata": true, "embed_thumbnail": true, "cover_format": "jpg", "cover_size": "original"}) - async_mode=eventlet
+2025-09-18 19:48:54,391 [INFO] Socket conectado: sid=cyKbtUDXfEuyeIsdAAAB, ip=127.0.0.1, room=8ab823dd-7b7c-4a19-892f-ad6fc2b3e679
+2025-09-18 19:48:54,433 [INFO] Sid cyKbtUDXfEuyeIsdAAAB se unió a la sala 8ab823dd-7b7c-4a19-892f-ad6fc2b3e679
+2025-09-18 19:48:54,910 [INFO] Socket desconectado: sid=cyKbtUDXfEuyeIsdAAAB, room=8ab823dd-7b7c-4a19-892f-ad6fc2b3e679
+2025-09-18 19:48:55,269 [INFO] Socket conectado: sid=oVz1uYSHixU3sJKBAAAD, ip=127.0.0.1, room=d8b1756d-a748-421b-bd17-5f32b346ab24
+2025-09-18 19:48:55,341 [INFO] Sid oVz1uYSHixU3sJKBAAAD se unió a la sala d8b1756d-a748-421b-bd17-5f32b346ab24
+2025-09-18 19:49:08,575 [INFO] Iniciada descarga 462486ae-dfcf-4006-b968-7e48cd8fc0d8 para URL: https://soundcloud.com/dontoliver/don-toliver-no-pole?si=520f26d4671343488dd0951bd348e313&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing (room=d8b1756d-a748-421b-bd17-5f32b346ab24)
+2025-09-18 19:49:14,775 [ERROR] Error durante la descarga/postprocesamiento
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3465, in process_info
+    replace_info_dict(self.post_process(dl_filename, info_dict, files_to_move))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3645, in post_process
+    info = self.run_all_pps('post_process', info, additional_pps=info.get('__postprocessors'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3627, in run_all_pps
+    info = self.run_pp(pp, info)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3605, in run_pp
+    files_to_delete, infodict = pp.run(infodict)
+                                ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/postprocessor/common.py", line 23, in run
+    ret = func(self, info, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/postprocessor/common.py", line 128, in wrapper
+    return func(self, info)
+           ^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/postprocessor/ffmpeg.py", line 495, in run
+    raise PostProcessingError('WARNING: unable to obtain file audio codec with ffprobe')
+yt_dlp.utils.PostProcessingError: WARNING: unable to obtain file audio codec with ffprobe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/alonsomota/Documents/proyectos_programacion/aquiWebDOWNLOADER ya jala pero raro/app.py", line 384, in _download_worker
+    ydl.download([url])
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3511, in download
+    self.__download_wrapper(self.extract_info)(
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3486, in wrapper
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1556, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1567, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1723, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1782, in process_ie_result
+    ie_result = self.process_video_result(ie_result, download=download)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 2922, in process_video_result
+    self.process_info(new_info)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 3467, in process_info
+    self.report_error('Postprocessing: %s' % str(err))
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 1045, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/yt_dlp/YoutubeDL.py", line 984, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m Postprocessing: WARNING: unable to obtain file audio codec with ffprobe
+2025-09-18 19:49:14,782 [INFO] Fallback: entregando archivo reciente /Users/alonsomota/Documents/proyectos_programacion/aquiWebDOWNLOADER ya jala pero raro/downloads/Don Toliver/NA - No Pole.aac
+2025-09-18 19:50:54,457 [INFO] Socket desconectado: sid=oVz1uYSHixU3sJKBAAAD, room=d8b1756d-a748-421b-bd17-5f32b346ab24
+2025-09-18 19:51:09,532 [INFO] Iniciando servidor (config: {"format": "mp3", "bitrate": "192", "template": "%(artist)s - %(title)s.%(ext)s", "create_artist_folders": true, "skip_existing": true, "add_metadata": true, "embed_thumbnail": true, "cover_format": "jpg", "cover_size": "original"}) - async_mode=eventlet
+2025-09-18 19:51:10,295 [INFO] Socket conectado: sid=xbPViNLC0SJaK9WbAAAB, ip=127.0.0.1, room=95a1e7b9-18aa-4a6e-892f-8ea6e4dd7b51
+2025-09-18 19:51:10,416 [INFO] Sid xbPViNLC0SJaK9WbAAAB se unió a la sala 95a1e7b9-18aa-4a6e-892f-8ea6e4dd7b51
+2025-09-18 19:51:48,490 [INFO] Iniciada descarga 3382e6fd-bf10-48bf-bb3e-3c025031d142 para URL: https://soundcloud.com/trending-music-amer/sets/rock-metal-punk?si=c0f5ab637d2744e0a3e28220aa2e83eb&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing (room=95a1e7b9-18aa-4a6e-892f-8ea6e4dd7b51)
+2025-09-18 19:52:36,225 [INFO] Iniciada descarga 090fb1c1-9d2b-4c1f-b072-8b7e7a9d7e29 para URL: https://soundcloud.com/trending-music-amer/sets/rock-metal-punk?si=c0f5ab637d2744e0a3e28220aa2e83eb&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing (room=95a1e7b9-18aa-4a6e-892f-8ea6e4dd7b51)
+2025-09-18 19:52:37,754 [INFO] Se solicitó cancelación de descarga 090fb1c1-9d2b-4c1f-b072-8b7e7a9d7e29
+2025-09-18 19:52:40,217 [INFO] Iniciada descarga e87e0ee6-0c69-4f21-8e79-6f54706cca1a para URL: https://soundcloud.com/trending-music-amer/sets/rock-metal-punk?si=c0f5ab637d2744e0a3e28220aa2e83eb&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing (room=95a1e7b9-18aa-4a6e-892f-8ea6e4dd7b51)
+2025-09-18 19:53:58,503 [INFO] Socket desconectado: sid=xbPViNLC0SJaK9WbAAAB, room=95a1e7b9-18aa-4a6e-892f-8ea6e4dd7b51
+2025-09-18 19:54:11,606 [INFO] Iniciando servidor (config: {"format": "mp3", "bitrate": "192", "template": "%(artist)s - %(title)s.%(ext)s", "create_artist_folders": true, "skip_existing": true, "add_metadata": true, "embed_thumbnail": true, "cover_format": "jpg", "cover_size": "original"}) - async_mode=eventlet
+2025-09-18 19:54:12,345 [INFO] Socket conectado: sid=ZMM3BnqiL6h3CkRXAAAB, ip=127.0.0.1, room=825a59a2-2799-4f20-9d35-e4d9ccc237fb
+2025-09-18 19:54:12,356 [INFO] Sid ZMM3BnqiL6h3CkRXAAAB se unió a la sala 825a59a2-2799-4f20-9d35-e4d9ccc237fb
+2025-09-18 19:54:14,965 [INFO] Socket desconectado: sid=ZMM3BnqiL6h3CkRXAAAB, room=825a59a2-2799-4f20-9d35-e4d9ccc237fb
+2025-09-18 19:54:15,379 [INFO] Socket conectado: sid=tjW_b8fIGtou00xJAAAD, ip=127.0.0.1, room=c97ea6ec-78c3-43dd-b573-ab520e3f0b0b
+2025-09-18 19:54:15,500 [INFO] Sid tjW_b8fIGtou00xJAAAD se unió a la sala c97ea6ec-78c3-43dd-b573-ab520e3f0b0b
+2025-09-18 19:54:48,224 [INFO] Iniciada descarga 887c21cb-9e56-481d-b19a-977d3df3ca64 para URL: https://soundcloud.com/hasan-abouzeid/kanye-west-after-you?si=aca031fce6724cbe90921f7f5d2367a3&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing (room=c97ea6ec-78c3-43dd-b573-ab520e3f0b0b)
+2025-09-18 19:54:48,768 [WARNING] yt-dlp: [soundcloud] Unable to download JSON metadata: HTTP Error 404: Not Found (caused by <HTTPError 404: Not Found>); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-09-18 19:54:50,399 [WARNING] yt-dlp: [soundcloud] Unable to download JSON metadata: HTTP Error 404: Not Found (caused by <HTTPError 404: Not Found>); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-09-18 19:54:52,571 [INFO] Archivo raw encontrado: /Users/alonsomota/Documents/proyectos_programacion/aquiWebDOWNLOADER ya jala pero raro/downloads/Dixon/NA - Kanye West - After You (unreleased).jpg
+2025-09-18 19:54:52,867 [INFO] ffmpeg stdout: 
+2025-09-18 19:54:52,867 [INFO] ffmpeg stderr: ffmpeg version 8.0 Copyright (c) 2000-2025 the FFmpeg developers
+  built with Apple clang version 17.0.0 (clang-1700.0.13.3)
+  configuration: --prefix=/opt/homebrew/Cellar/ffmpeg/8.0_1 --enable-shared --enable-pthreads --enable-version3 --cc=clang --host-cflags= --host-ldflags='-Wl,-ld_classic' --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libaribb24 --enable-libbluray --enable-libdav1d --enable-libharfbuzz --enable-libjxl --enable-libmp3lame --enable-libopus --enable-librav1e --enable-librist --enable-librubberband --enable-libsnappy --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libtesseract --enable-libtheora --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libspeex --enable-libsoxr --enable-libzmq --enable-libzimg --disable-libjack --disable-indev=jack --enable-videotoolbox --enable-audiotoolbox --enable-neon
+  libavutil      60.  8.100 / 60.  8.100
+  libavcodec     62. 11.100 / 62. 11.100
+  libavformat    62.  3.100 / 62.  3.100
+  libavdevice    62.  1.100 / 62.  1.100
+  libavfilter    11.  4.100 / 11.  4.100
+  libswscale      9.  1.100 /  9.  1.100
+  libswresample   6.  1.100 /  6.  1.100
+Input #0, image2, from '/Users/alonsomota/Documents/proyectos_programacion/aquiWebDOWNLOADER ya jala pero raro/downloads/Dixon/NA - Kanye West - After You (unreleased).jpg':
+  Duration: 00:00:00.04, start: 0.000000, bitrate: 16480 kb/s
+  Stream #0:0: Video: mjpeg (Baseline), yuvj420p(pc, bt470bg/unknown/unknown), 1076x1076 [SAR 1:1 DAR 1:1], 25 fps, 25 tbr, 25 tbn
+Output #0, mp3, to 'Kanye West - After You (unreleased) [1416332992].mp3':
+[out#0/mp3 @ 0x131304130] Output file does not contain any stream
+Error opening output file Kanye West - After You (unreleased) [1416332992].mp3.
+Error opening output files: Invalid argument
+
+2025-09-18 19:55:55,192 [INFO] Iniciada descarga 85aaec67-1da7-41e4-963f-b70650a0b0a4 para URL: https://soundcloud.com/hasan-abouzeid/kanye-west-after-you?si=aca031fce6724cbe90921f7f5d2367a3&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing (room=c97ea6ec-78c3-43dd-b573-ab520e3f0b0b)
+2025-09-18 19:55:56,710 [WARNING] yt-dlp: [soundcloud] Unable to download JSON metadata: HTTP Error 404: Not Found (caused by <HTTPError 404: Not Found>); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-09-18 19:55:58,346 [WARNING] yt-dlp: [soundcloud] Unable to download JSON metadata: HTTP Error 404: Not Found (caused by <HTTPError 404: Not Found>); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-09-18 19:56:00,548 [INFO] Archivo raw encontrado: /Users/alonsomota/Documents/proyectos_programacion/aquiWebDOWNLOADER ya jala pero raro/downloads/Dixon/NA - Kanye West - After You (unreleased).jpg
+2025-09-18 19:56:00,775 [INFO] ffmpeg stdout: 
+2025-09-18 19:56:00,776 [INFO] ffmpeg stderr: ffmpeg version 8.0 Copyright (c) 2000-2025 the FFmpeg developers
+  built with Apple clang version 17.0.0 (clang-1700.0.13.3)
+  configuration: --prefix=/opt/homebrew/Cellar/ffmpeg/8.0_1 --enable-shared --enable-pthreads --enable-version3 --cc=clang --host-cflags= --host-ldflags='-Wl,-ld_classic' --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libaribb24 --enable-libbluray --enable-libdav1d --enable-libharfbuzz --enable-libjxl --enable-libmp3lame --enable-libopus --enable-librav1e --enable-librist --enable-librubberband --enable-libsnappy --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libtesseract --enable-libtheora --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libspeex --enable-libsoxr --enable-libzmq --enable-libzimg --disable-libjack --disable-indev=jack --enable-videotoolbox --enable-audiotoolbox --enable-neon
+  libavutil      60.  8.100 / 60.  8.100
+  libavcodec     62. 11.100 / 62. 11.100
+  libavformat    62.  3.100 / 62.  3.100
+  libavdevice    62.  1.100 / 62.  1.100
+  libavfilter    11.  4.100 / 11.  4.100
+  libswscale      9.  1.100 /  9.  1.100
+  libswresample   6.  1.100 /  6.  1.100
+Input #0, image2, from '/Users/alonsomota/Documents/proyectos_programacion/aquiWebDOWNLOADER ya jala pero raro/downloads/Dixon/NA - Kanye West - After You (unreleased).jpg':
+  Duration: 00:00:00.04, start: 0.000000, bitrate: 16480 kb/s
+  Stream #0:0: Video: mjpeg (Baseline), yuvj420p(pc, bt470bg/unknown/unknown), 1076x1076 [SAR 1:1 DAR 1:1], 25 fps, 25 tbr, 25 tbn
+Output #0, mp3, to 'Kanye West - After You (unreleased) [1416332992].mp3':
+[out#0/mp3 @ 0x1536313d0] Output file does not contain any stream
+Error opening output file Kanye West - After You (unreleased) [1416332992].mp3.
+Error opening output files: Invalid argument
+
+2025-09-18 19:58:50,190 [INFO] Iniciando servidor (config: {"format": "mp3", "bitrate": "192", "template": "%(artist)s - %(title)s.%(ext)s", "create_artist_folders": true, "skip_existing": true, "add_metadata": true, "embed_thumbnail": true, "cover_format": "jpg", "cover_size": "original"}) - async_mode=eventlet
+2025-09-18 19:58:51,200 [INFO] Socket conectado: sid=JbPwzXK7fDBTHh9XAAAB, ip=127.0.0.1, room=9d91c572-66a6-4202-a450-963cc47d1bea
+2025-09-18 19:58:51,225 [INFO] Sid JbPwzXK7fDBTHh9XAAAB se unió a la sala 9d91c572-66a6-4202-a450-963cc47d1bea
+2025-09-18 19:59:06,883 [INFO] Iniciada descarga 7e67a917-795f-498c-a197-5a78682583ac para URL: https://soundcloud.com/hasan-abouzeid/kanye-west-after-you?si=d5a4be8d358b4a3b83de01a7d66f23a9&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing (room=9d91c572-66a6-4202-a450-963cc47d1bea)
+2025-09-18 19:59:07,371 [WARNING] yt-dlp: [soundcloud] Unable to download JSON metadata: HTTP Error 404: Not Found (caused by <HTTPError 404: Not Found>); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-09-18 19:59:08,655 [WARNING] yt-dlp: [soundcloud] Unable to download JSON metadata: HTTP Error 404: Not Found (caused by <HTTPError 404: Not Found>); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-09-18 19:59:10,435 [INFO] Archivo raw encontrado: /Users/alonsomota/Downloads/Dixon/NA - Kanye West - After You (unreleased).jpg
+2025-09-18 19:59:10,776 [INFO] ffmpeg stdout: 
+2025-09-18 19:59:10,776 [INFO] ffmpeg stderr: ffmpeg version 8.0 Copyright (c) 2000-2025 the FFmpeg developers
+  built with Apple clang version 17.0.0 (clang-1700.0.13.3)
+  configuration: --prefix=/opt/homebrew/Cellar/ffmpeg/8.0_1 --enable-shared --enable-pthreads --enable-version3 --cc=clang --host-cflags= --host-ldflags='-Wl,-ld_classic' --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libaribb24 --enable-libbluray --enable-libdav1d --enable-libharfbuzz --enable-libjxl --enable-libmp3lame --enable-libopus --enable-librav1e --enable-librist --enable-librubberband --enable-libsnappy --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libtesseract --enable-libtheora --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libspeex --enable-libsoxr --enable-libzmq --enable-libzimg --disable-libjack --disable-indev=jack --enable-videotoolbox --enable-audiotoolbox --enable-neon
+  libavutil      60.  8.100 / 60.  8.100
+  libavcodec     62. 11.100 / 62. 11.100
+  libavformat    62.  3.100 / 62.  3.100
+  libavdevice    62.  1.100 / 62.  1.100
+  libavfilter    11.  4.100 / 11.  4.100
+  libswscale      9.  1.100 /  9.  1.100
+  libswresample   6.  1.100 /  6.  1.100
+Input #0, image2, from '/Users/alonsomota/Downloads/Dixon/NA - Kanye West - After You (unreleased).jpg':
+  Duration: 00:00:00.04, start: 0.000000, bitrate: 16480 kb/s
+  Stream #0:0: Video: mjpeg (Baseline), yuvj420p(pc, bt470bg/unknown/unknown), 1076x1076 [SAR 1:1 DAR 1:1], 25 fps, 25 tbr, 25 tbn
+Output #0, mp3, to 'Kanye West - After You (unreleased) [1416332992].mp3':
+[out#0/mp3 @ 0x123f0ffc0] Output file does not contain any stream
+Error opening output file Kanye West - After You (unreleased) [1416332992].mp3.
+Error opening output files: Invalid argument
+
+2025-09-18 19:59:44,467 [INFO] Iniciada descarga 874549ae-11c7-40be-b139-7530da9a8fc5 para URL: https://soundcloud.com/hasan-abouzeid/kanye-west-after-you?si=d5a4be8d358b4a3b83de01a7d66f23a9&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing (room=9d91c572-66a6-4202-a450-963cc47d1bea)
+2025-09-18 19:59:44,960 [WARNING] yt-dlp: [soundcloud] Unable to download JSON metadata: HTTP Error 404: Not Found (caused by <HTTPError 404: Not Found>); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-09-18 19:59:46,165 [WARNING] yt-dlp: [soundcloud] Unable to download JSON metadata: HTTP Error 404: Not Found (caused by <HTTPError 404: Not Found>); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-09-18 19:59:47,030 [INFO] Archivo raw encontrado: /Users/alonsomota/Downloads/Dixon/NA - Kanye West - After You (unreleased).jpg
+2025-09-18 19:59:47,344 [INFO] ffmpeg stdout: 
+2025-09-18 19:59:47,344 [INFO] ffmpeg stderr: ffmpeg version 8.0 Copyright (c) 2000-2025 the FFmpeg developers
+  built with Apple clang version 17.0.0 (clang-1700.0.13.3)
+  configuration: --prefix=/opt/homebrew/Cellar/ffmpeg/8.0_1 --enable-shared --enable-pthreads --enable-version3 --cc=clang --host-cflags= --host-ldflags='-Wl,-ld_classic' --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libaribb24 --enable-libbluray --enable-libdav1d --enable-libharfbuzz --enable-libjxl --enable-libmp3lame --enable-libopus --enable-librav1e --enable-librist --enable-librubberband --enable-libsnappy --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libtesseract --enable-libtheora --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libspeex --enable-libsoxr --enable-libzmq --enable-libzimg --disable-libjack --disable-indev=jack --enable-videotoolbox --enable-audiotoolbox --enable-neon
+  libavutil      60.  8.100 / 60.  8.100
+  libavcodec     62. 11.100 / 62. 11.100
+  libavformat    62.  3.100 / 62.  3.100
+  libavdevice    62.  1.100 / 62.  1.100
+  libavfilter    11.  4.100 / 11.  4.100
+  libswscale      9.  1.100 /  9.  1.100
+  libswresample   6.  1.100 /  6.  1.100
+Input #0, image2, from '/Users/alonsomota/Downloads/Dixon/NA - Kanye West - After You (unreleased).jpg':
+  Duration: 00:00:00.04, start: 0.000000, bitrate: 16480 kb/s
+  Stream #0:0: Video: mjpeg (Baseline), yuvj420p(pc, bt470bg/unknown/unknown), 1076x1076 [SAR 1:1 DAR 1:1], 25 fps, 25 tbr, 25 tbn
+Output #0, mp3, to 'Kanye West - After You (unreleased) [1416332992].mp3':
+[out#0/mp3 @ 0x12bf0fbe0] Output file does not contain any stream
+Error opening output file Kanye West - After You (unreleased) [1416332992].mp3.
+Error opening output files: Invalid argument
+
+2025-09-18 20:03:29,985 [INFO] Iniciada descarga 99320402-a949-4b3e-a03d-15e145bcf555 para URL: https://soundcloud.com/hasan-abouzeid/kanye-west-after-you?si=d5a4be8d358b4a3b83de01a7d66f23a9&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing (room=9d91c572-66a6-4202-a450-963cc47d1bea)
+2025-09-18 20:03:30,457 [WARNING] yt-dlp: [soundcloud] Unable to download JSON metadata: HTTP Error 404: Not Found (caused by <HTTPError 404: Not Found>); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-09-18 20:03:33,028 [WARNING] yt-dlp: [soundcloud] Unable to download JSON metadata: HTTP Error 404: Not Found (caused by <HTTPError 404: Not Found>); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-09-18 20:03:36,026 [INFO] Archivo raw encontrado: /Users/alonsomota/Downloads/Dixon/NA - Kanye West - After You (unreleased).jpg
+2025-09-18 20:03:36,367 [INFO] ffmpeg stdout: 
+2025-09-18 20:03:36,367 [INFO] ffmpeg stderr: ffmpeg version 8.0 Copyright (c) 2000-2025 the FFmpeg developers
+  built with Apple clang version 17.0.0 (clang-1700.0.13.3)
+  configuration: --prefix=/opt/homebrew/Cellar/ffmpeg/8.0_1 --enable-shared --enable-pthreads --enable-version3 --cc=clang --host-cflags= --host-ldflags='-Wl,-ld_classic' --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libaribb24 --enable-libbluray --enable-libdav1d --enable-libharfbuzz --enable-libjxl --enable-libmp3lame --enable-libopus --enable-librav1e --enable-librist --enable-librubberband --enable-libsnappy --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libtesseract --enable-libtheora --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libspeex --enable-libsoxr --enable-libzmq --enable-libzimg --disable-libjack --disable-indev=jack --enable-videotoolbox --enable-audiotoolbox --enable-neon
+  libavutil      60.  8.100 / 60.  8.100
+  libavcodec     62. 11.100 / 62. 11.100
+  libavformat    62.  3.100 / 62.  3.100
+  libavdevice    62.  1.100 / 62.  1.100
+  libavfilter    11.  4.100 / 11.  4.100
+  libswscale      9.  1.100 /  9.  1.100
+  libswresample   6.  1.100 /  6.  1.100
+Input #0, image2, from '/Users/alonsomota/Downloads/Dixon/NA - Kanye West - After You (unreleased).jpg':
+  Duration: 00:00:00.04, start: 0.000000, bitrate: 16480 kb/s
+  Stream #0:0: Video: mjpeg (Baseline), yuvj420p(pc, bt470bg/unknown/unknown), 1076x1076 [SAR 1:1 DAR 1:1], 25 fps, 25 tbr, 25 tbn
+Output #0, mp3, to 'Kanye West - After You (unreleased) [1416332992].mp3':
+[out#0/mp3 @ 0x140814350] Output file does not contain any stream
+Error opening output file Kanye West - After You (unreleased) [1416332992].mp3.
+Error opening output files: Invalid argument
+
+2025-09-18 20:05:38,307 [INFO] Socket desconectado: sid=JbPwzXK7fDBTHh9XAAAB, room=9d91c572-66a6-4202-a450-963cc47d1bea
+2025-09-18 20:05:59,713 [INFO] Iniciando servidor (config: {"format": "mp3", "bitrate": "192", "template": "%(artist)s - %(title)s.%(ext)s", "create_artist_folders": true, "skip_existing": true, "add_metadata": true, "embed_thumbnail": true, "cover_format": "jpg", "cover_size": "original"}) - async_mode=eventlet
+2025-09-18 20:06:02,964 [INFO] Socket conectado: sid=9GrIGRbWlvTL9JWQAAAB, ip=127.0.0.1, room=c5841b23-3268-4c00-8061-405a7d0b5bff
+2025-09-18 20:06:03,004 [INFO] Sid 9GrIGRbWlvTL9JWQAAAB se unió a la sala c5841b23-3268-4c00-8061-405a7d0b5bff
+2025-09-18 20:06:41,643 [INFO] Configuración guardada en config.json
+2025-09-18 20:07:04,108 [INFO] Iniciada descarga 1ccc57b4-889e-4baf-a482-d2efcc29a3af para URL: https://soundcloud.com/yo-boi-lester/mamas-boyfriend-kanye-west-1?si=589ea79cb6f64fadb60d4c7c43956691&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing (room=c5841b23-3268-4c00-8061-405a7d0b5bff)
+2025-09-18 20:07:04,581 [WARNING] yt-dlp: [soundcloud] Unable to download JSON metadata: HTTP Error 404: Not Found (caused by <HTTPError 404: Not Found>); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-09-18 20:07:05,875 [WARNING] yt-dlp: [soundcloud] Unable to download JSON metadata: HTTP Error 404: Not Found (caused by <HTTPError 404: Not Found>); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-09-18 20:07:09,924 [INFO] Archivo raw encontrado: /Users/alonsomota/Documents/NA - Mama's Boyfriend Kanye West.jpg
+2025-09-18 20:07:10,491 [INFO] ffmpeg stdout: 
+2025-09-18 20:07:10,491 [INFO] ffmpeg stderr: ffmpeg version 8.0 Copyright (c) 2000-2025 the FFmpeg developers
+  built with Apple clang version 17.0.0 (clang-1700.0.13.3)
+  configuration: --prefix=/opt/homebrew/Cellar/ffmpeg/8.0_1 --enable-shared --enable-pthreads --enable-version3 --cc=clang --host-cflags= --host-ldflags='-Wl,-ld_classic' --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libaribb24 --enable-libbluray --enable-libdav1d --enable-libharfbuzz --enable-libjxl --enable-libmp3lame --enable-libopus --enable-librav1e --enable-librist --enable-librubberband --enable-libsnappy --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libtesseract --enable-libtheora --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libspeex --enable-libsoxr --enable-libzmq --enable-libzimg --disable-libjack --disable-indev=jack --enable-videotoolbox --enable-audiotoolbox --enable-neon
+  libavutil      60.  8.100 / 60.  8.100
+  libavcodec     62. 11.100 / 62. 11.100
+  libavformat    62.  3.100 / 62.  3.100
+  libavdevice    62.  1.100 / 62.  1.100
+  libavfilter    11.  4.100 / 11.  4.100
+  libswscale      9.  1.100 /  9.  1.100
+  libswresample   6.  1.100 /  6.  1.100
+Input #0, image2, from '/Users/alonsomota/Documents/NA - Mama's Boyfriend Kanye West.jpg':
+  Duration: 00:00:00.04, start: 0.000000, bitrate: 29541 kb/s
+  Stream #0:0: Video: mjpeg (Baseline), yuvj420p(pc, bt470bg/unknown/unknown), 683x683 [SAR 1:1 DAR 1:1], 25 fps, 25 tbr, 25 tbn
+Output #0, mp3, to 'Mama's Boyfriend Kanye West [559545066].mp3':
+[out#0/mp3 @ 0x12d62eca0] Output file does not contain any stream
+Error opening output file Mama's Boyfriend Kanye West [559545066].mp3.
+Error opening output files: Invalid argument
+
+2025-09-18 20:11:53,127 [INFO] Socket desconectado: sid=9GrIGRbWlvTL9JWQAAAB, room=c5841b23-3268-4c00-8061-405a7d0b5bff

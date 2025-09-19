@@ -1,0 +1,11 @@
+{
+  "format": "mp3",
+  "bitrate": "320",
+  "template": "%(artist)s - %(title)s.%(ext)s",
+  "create_artist_folders": false,
+  "skip_existing": true,
+  "add_metadata": true,
+  "embed_thumbnail": true,
+  "cover_format": "jpg",
+  "cover_size": "original"
+}

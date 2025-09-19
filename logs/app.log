@@ -1,0 +1,89 @@
+2025-09-17 22:04:43,133 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://192.168.100.228:5002
+2025-09-17 22:04:43,134 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-17 22:04:43,134 - INFO -  * Restarting with watchdog (fsevents)
+2025-09-17 22:04:43,367 - WARNING -  * Debugger is active!
+2025-09-17 22:04:43,374 - INFO -  * Debugger PIN: 381-111-589
+2025-09-17 22:04:47,810 - INFO - 192.168.100.228 - - [17/Sep/2025 22:04:47] "GET / HTTP/1.1" 200 -
+2025-09-17 22:04:49,774 - INFO - 192.168.100.228 - - [17/Sep/2025 22:04:49] "GET /api/config HTTP/1.1" 200 -
+2025-09-17 22:04:49,774 - INFO - 192.168.100.228 - - [17/Sep/2025 22:04:49] "GET /socket.io/?EIO=4&transport=polling&t=PbQ_n7I HTTP/1.1" 200 -
+2025-09-17 22:04:49,821 - INFO - 192.168.100.228 - - [17/Sep/2025 22:04:49] "POST /socket.io/?EIO=4&transport=polling&t=PbQ_n8G&sid=UrBFuMd5lbzeWEJmAAAA HTTP/1.1" 200 -
+2025-09-17 22:04:49,821 - INFO - 192.168.100.228 - - [17/Sep/2025 22:04:49] "GET /socket.io/?EIO=4&transport=polling&t=PbQ_n8J&sid=UrBFuMd5lbzeWEJmAAAA HTTP/1.1" 200 -
+2025-09-17 22:04:49,831 - INFO - 192.168.100.228 - - [17/Sep/2025 22:04:49] "GET /socket.io/?EIO=4&transport=polling&t=PbQ_n8Z&sid=UrBFuMd5lbzeWEJmAAAA HTTP/1.1" 200 -
+2025-09-17 22:04:49,832 - INFO - 192.168.100.228 - - [17/Sep/2025 22:04:49] "POST /socket.io/?EIO=4&transport=polling&t=PbQ_n8Z.0&sid=UrBFuMd5lbzeWEJmAAAA HTTP/1.1" 200 -
+2025-09-17 22:04:49,864 - INFO - 192.168.100.228 - - [17/Sep/2025 22:04:49] "GET /socket.io/?EIO=4&transport=polling&t=PbQ_n8z&sid=UrBFuMd5lbzeWEJmAAAA HTTP/1.1" 200 -
+2025-09-17 22:04:51,817 - INFO - 192.168.100.228 - - [17/Sep/2025 22:04:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-09-17 22:05:09,527 - INFO - 192.168.100.228 - - [17/Sep/2025 22:05:09] "POST /api/download/start HTTP/1.1" 200 -
+2025-09-17 22:07:46,491 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://192.168.100.228:5002
+2025-09-17 22:07:46,492 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-17 22:07:46,492 - INFO -  * Restarting with watchdog (fsevents)
+2025-09-17 22:07:46,702 - WARNING -  * Debugger is active!
+2025-09-17 22:07:46,709 - INFO -  * Debugger PIN: 381-111-589
+2025-09-17 22:07:49,667 - INFO - 127.0.0.1 - - [17/Sep/2025 22:07:49] "GET / HTTP/1.1" 200 -
+2025-09-17 22:07:50,689 - INFO - 127.0.0.1 - - [17/Sep/2025 22:07:50] "GET /api/config HTTP/1.1" 200 -
+2025-09-17 22:07:50,697 - INFO - 127.0.0.1 - - [17/Sep/2025 22:07:50] "GET /socket.io/?EIO=4&transport=polling&t=PbR0TI6 HTTP/1.1" 200 -
+2025-09-17 22:07:50,733 - INFO - 127.0.0.1 - - [17/Sep/2025 22:07:50] "POST /socket.io/?EIO=4&transport=polling&t=PbR0TIm&sid=C6tEACQI5bbAmI6WAAAA HTTP/1.1" 200 -
+2025-09-17 22:07:50,735 - INFO - 127.0.0.1 - - [17/Sep/2025 22:07:50] "GET /socket.io/?EIO=4&transport=polling&t=PbR0TIn&sid=C6tEACQI5bbAmI6WAAAA HTTP/1.1" 200 -
+2025-09-17 22:07:50,750 - INFO - 127.0.0.1 - - [17/Sep/2025 22:07:50] "GET /socket.io/?EIO=4&transport=polling&t=PbR0TJS&sid=C6tEACQI5bbAmI6WAAAA HTTP/1.1" 200 -
+2025-09-17 22:07:50,751 - INFO - 127.0.0.1 - - [17/Sep/2025 22:07:50] "POST /socket.io/?EIO=4&transport=polling&t=PbR0TJS.0&sid=C6tEACQI5bbAmI6WAAAA HTTP/1.1" 200 -
+2025-09-17 22:07:50,780 - INFO - 127.0.0.1 - - [17/Sep/2025 22:07:50] "GET /socket.io/?EIO=4&transport=polling&t=PbR0TJu&sid=C6tEACQI5bbAmI6WAAAA HTTP/1.1" 200 -
+2025-09-17 22:07:52,629 - INFO - 127.0.0.1 - - [17/Sep/2025 22:07:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-09-17 22:08:00,600 - INFO - 127.0.0.1 - - [17/Sep/2025 22:08:00] "POST /api/download/start HTTP/1.1" 200 -
+2025-09-18 19:23:46,148 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://192.168.100.228:5002
+2025-09-18 19:23:46,149 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-18 19:23:46,149 - INFO -  * Restarting with watchdog (fsevents)
+2025-09-18 19:23:46,441 - WARNING -  * Debugger is active!
+2025-09-18 19:23:46,455 - INFO -  * Debugger PIN: 381-111-589
+2025-09-18 19:23:49,869 - INFO - 127.0.0.1 - - [18/Sep/2025 19:23:49] "GET / HTTP/1.1" 200 -
+2025-09-18 19:23:50,809 - INFO - 127.0.0.1 - - [18/Sep/2025 19:23:50] "GET /socket.io/?EIO=4&transport=polling&t=PbVaWkB HTTP/1.1" 200 -
+2025-09-18 19:23:50,837 - INFO - 127.0.0.1 - - [18/Sep/2025 19:23:50] "GET /api/config HTTP/1.1" 200 -
+2025-09-18 19:23:50,933 - INFO - 127.0.0.1 - - [18/Sep/2025 19:23:50] "POST /socket.io/?EIO=4&transport=polling&t=PbVaWkf&sid=jXHY2SiFd6ZGTozKAAAA HTTP/1.1" 200 -
+2025-09-18 19:23:50,934 - INFO - 127.0.0.1 - - [18/Sep/2025 19:23:50] "GET /socket.io/?EIO=4&transport=polling&t=PbVaWkj&sid=jXHY2SiFd6ZGTozKAAAA HTTP/1.1" 200 -
+2025-09-18 19:23:50,966 - INFO - 127.0.0.1 - - [18/Sep/2025 19:23:50] "GET /socket.io/?EIO=4&transport=polling&t=PbVaWmU&sid=jXHY2SiFd6ZGTozKAAAA HTTP/1.1" 200 -
+2025-09-18 19:23:50,966 - INFO - 127.0.0.1 - - [18/Sep/2025 19:23:50] "POST /socket.io/?EIO=4&transport=polling&t=PbVaWmU.0&sid=jXHY2SiFd6ZGTozKAAAA HTTP/1.1" 200 -
+2025-09-18 19:24:00,692 - INFO - 127.0.0.1 - - [18/Sep/2025 19:24:00] "POST /api/download/start HTTP/1.1" 200 -
+2025-09-18 19:24:01,066 - ERROR - Download error: [0;31mERROR:[0m [soundcloud] Unable to download JSON metadata: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000) (caused by CertificateVerifyError('[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-09-18 19:25:10,112 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://192.168.100.228:5002
+2025-09-18 19:25:10,113 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-18 19:25:10,113 - INFO -  * Restarting with watchdog (fsevents)
+2025-09-18 19:25:10,359 - WARNING -  * Debugger is active!
+2025-09-18 19:25:10,369 - INFO -  * Debugger PIN: 381-111-589
+2025-09-18 19:25:10,761 - INFO - 127.0.0.1 - - [18/Sep/2025 19:25:10] "GET /socket.io/?EIO=4&transport=polling&t=PbVaqFR HTTP/1.1" 200 -
+2025-09-18 19:25:10,777 - INFO - 127.0.0.1 - - [18/Sep/2025 19:25:10] "POST /socket.io/?EIO=4&transport=polling&t=PbVaqFm&sid=3bZ3lyqvOy5aidzAAAAA HTTP/1.1" 200 -
+2025-09-18 19:25:10,789 - INFO - 127.0.0.1 - - [18/Sep/2025 19:25:10] "GET /socket.io/?EIO=4&transport=polling&t=PbVaqF-&sid=3bZ3lyqvOy5aidzAAAAA HTTP/1.1" 200 -
+2025-09-18 19:25:10,797 - INFO - 127.0.0.1 - - [18/Sep/2025 19:25:10] "GET /socket.io/?EIO=4&transport=polling&t=PbVaqG8&sid=3bZ3lyqvOy5aidzAAAAA HTTP/1.1" 200 -
+2025-09-18 19:25:10,798 - INFO - 127.0.0.1 - - [18/Sep/2025 19:25:10] "POST /socket.io/?EIO=4&transport=polling&t=PbVaqG9&sid=3bZ3lyqvOy5aidzAAAAA HTTP/1.1" 200 -
+2025-09-18 19:25:48,442 - INFO - 127.0.0.1 - - [18/Sep/2025 19:25:48] "POST /api/download/start HTTP/1.1" 200 -
+2025-09-18 19:25:48,871 - ERROR - Download error: [0;31mERROR:[0m [soundcloud] Unable to download JSON metadata: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000) (caused by CertificateVerifyError('[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')); please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+2025-09-18 19:40:17,839 - INFO - Iniciando SoundCloud Downloader...
+2025-09-18 19:40:17,872 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5002
+ * Running on http://192.168.100.228:5002
+2025-09-18 19:40:17,872 - INFO - [33mPress CTRL+C to quit[0m
+2025-09-18 19:40:17,872 - INFO -  * Restarting with watchdog (fsevents)
+2025-09-18 19:40:18,138 - INFO - Iniciando SoundCloud Downloader...
+2025-09-18 19:40:18,152 - WARNING -  * Debugger is active!
+2025-09-18 19:40:18,162 - INFO -  * Debugger PIN: 381-111-589
+2025-09-18 19:40:22,684 - INFO - 192.168.100.228 - - [18/Sep/2025 19:40:22] "GET / HTTP/1.1" 200 -
+2025-09-18 19:40:23,831 - INFO - 192.168.100.228 - - [18/Sep/2025 19:40:23] "GET /socket.io/?EIO=4&transport=polling&t=PbVeJ9r HTTP/1.1" 200 -
+2025-09-18 19:40:23,836 - INFO - 192.168.100.228 - - [18/Sep/2025 19:40:23] "GET /api/config HTTP/1.1" 200 -
+2025-09-18 19:40:23,916 - INFO - 192.168.100.228 - - [18/Sep/2025 19:40:23] "POST /socket.io/?EIO=4&transport=polling&t=PbVeJBD&sid=-CHkL0JDit2Hy5V_AAAA HTTP/1.1" 200 -
+2025-09-18 19:40:23,935 - INFO - 192.168.100.228 - - [18/Sep/2025 19:40:23] "GET /socket.io/?EIO=4&transport=polling&t=PbVeJBI&sid=-CHkL0JDit2Hy5V_AAAA HTTP/1.1" 200 -
+2025-09-18 19:40:23,985 - INFO - 192.168.100.228 - - [18/Sep/2025 19:40:23] "POST /socket.io/?EIO=4&transport=polling&t=PbVeJCU.0&sid=-CHkL0JDit2Hy5V_AAAA HTTP/1.1" 200 -
+2025-09-18 19:40:23,985 - INFO - 192.168.100.228 - - [18/Sep/2025 19:40:23] "GET /socket.io/?EIO=4&transport=polling&t=PbVeJCU&sid=-CHkL0JDit2Hy5V_AAAA HTTP/1.1" 200 -
+2025-09-18 19:40:24,076 - INFO - 192.168.100.228 - - [18/Sep/2025 19:40:24] "GET /socket.io/?EIO=4&transport=polling&t=PbVeJE3&sid=-CHkL0JDit2Hy5V_AAAA HTTP/1.1" 200 -
+2025-09-18 19:40:33,796 - INFO - 192.168.100.228 - - [18/Sep/2025 19:40:33] "POST /api/download/start HTTP/1.1" 200 -
+2025-09-18 19:42:34,273 - INFO -  * Detected change in '/Users/alonsomota/Documents/proyectos_programacion/aquiWebDOWNLOADER ya jala pero raro/app.py', reloading
+2025-09-18 19:42:34,876 - INFO -  * Restarting with watchdog (fsevents)
